@@ -8,14 +8,12 @@ while X!=1:
     if X <= cmp:
         if i%2 == 0:
             b = i
-            for i in range(X-(cmp-i+1)):
-                a += 1
-                b -= 1
+            a += (X-(cmp-i+1))
+            b -= (X-(cmp-i+1))
         else:
             a = i
-            for i in range(X-(cmp-i+1)):
-                a -= 1
-                b += 1
+            a -= (X-(cmp-i+1))
+            b += (X-(cmp-i+1))
         break
     i += 1
 print(str(a) + '/' + str(b))
