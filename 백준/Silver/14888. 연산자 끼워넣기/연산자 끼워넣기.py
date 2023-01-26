@@ -30,10 +30,8 @@ def is_promising():
 def dfs(num):
     global temp, max_value, min_value
     if not sum(operator):
-        if max_value < temp[num - 1]:
-            max_value = temp[num - 1]
-        if min_value > temp[num - 1]:
-            min_value = temp[num - 1]
+        max_value = max(max_value ,temp[num - 1])
+        min_value = min(min_value, temp[num - 1])
         return
     for i in is_promising():
         operator[i] -= 1
