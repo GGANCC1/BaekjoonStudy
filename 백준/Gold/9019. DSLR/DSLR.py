@@ -34,17 +34,15 @@ def bfs(s, t):
     visited = [INF] * 10001
     visited[s] = 0
     dx = ['D', 'S', 'L', 'R']
-    ans = "X" * 10001
     while q:
         x, cmd = q.popleft()
-        if x == t and len(ans) > len(cmd):
-            ans = cmd
+        if x == t:
+            return cmd
         for i in range(len(dx)):
             nx = dslr(dx[i], x)
             if visited[nx] > len(cmd) + 1:
                 visited[nx] = len(cmd) + 1
                 q.append((nx, cmd + dx[i]))
-    return ans
 
 
 n = int(sys.stdin.readline().rstrip())
