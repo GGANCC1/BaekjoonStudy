@@ -3,9 +3,11 @@ sys.setrecursionlimit(10 ** 5)
 
 
 def dfs(node, length):
-    global ans
+    global ans, start_node
     if len(graph[node]) == 1 and length != 0:
-        ans = max(ans, length)
+        if ans < length:
+            ans = length
+            start_node = node
         return
     for next_node in graph[node]:
         if not visited[next_node]:
@@ -22,13 +24,10 @@ for i in range(n - 1):
     b -= 1
     graph[a][b] = c
     graph[b][a] = c
-start = []
-for i in range(n):
-    if len(graph[i]) == 1:
-        start.append(i)
 ans = 0
-for i in start:
+start_node = 0
+for i in range(2):
     visited = [False] * n
-    visited[i] = True
-    dfs(i, 0)
+    visited[start_node] = True
+    dfs(start_node, 0)
 print(ans)
